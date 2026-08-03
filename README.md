@@ -1,105 +1,57 @@
-# Alura MIDI 🥁
+# 🥁 Alura Midi
 
-Projeto de estudo desenvolvido durante o curso de JavaScript da [Alura](https://www.alura.com.br/), que simula um mini teclado/bateria eletrônica no navegador. Cada tecla, ao ser clicada, reproduz um som diferente.
+Um teclado MIDI de percussão feito com **HTML, CSS e JavaScript**, onde cada tecla do teclado do computador aciona um som de bateria/percussão diferente. Projeto desenvolvido durante um curso da Alura.
 
-## 🎯 Sobre o projeto
+## 🎧 Demonstração
 
-O **Alura MIDI** é uma interface simples com 9 teclas (botões), cada uma associada a um som de percussão. O projeto trabalha conceitos fundamentais de JavaScript, como:
+Abra o `index.html` no navegador e clique nos botões (ou use o teclado) para tocar os sons.
 
-- Manipulação do DOM (`querySelector`, `querySelectorAll`)
-- Estruturas de repetição (`while`) para configurar todas as teclas dinamicamente
-- Manipulação de eventos (`onclick`)
-- Reprodução de áudio via elemento `<audio>`
-- Template strings para montar seletores de forma dinâmica
+## ⌨️ Mapeamento das teclas
 
-## 🎹 Teclas disponíveis
-
-| Tecla   | Som   |
-|---------|-------|
-| Pom     | keyq  |
-| Clap    | keyw  |
-| Tim     | keye  |
-| Puff    | keya  |
-| Splash  | keys  |
-| Toim    | keyd  |
-| Psh     | keyz  |
-| Tic     | keyx  |
-| Tom     | keyc  |
+| Botão  | Tecla do teclado | Som        |
+| ------ | :--------------: | ---------- |
+| Pom    |       `Q`        | `keyq.wav` |
+| Clap   |       `W`        | `keyw.wav` |
+| Tim    |       `E`        | `keye.wav` |
+| Puff   |       `A`        | `keya.wav` |
+| Splash |       `S`        | `keys.wav` |
+| Toim   |       `D`        | `keyd.wav` |
+| Psh    |       `Z`        | `keyz.wav` |
+| Tic    |       `X`        | `keyx.wav` |
+| Tom    |       `C`        | `keyc.wav` |
 
 ## 🛠️ Tecnologias utilizadas
 
-- **HTML5** – estrutura da página e elementos de áudio
-- **CSS3** – estilização do teclado
-- **JavaScript** – lógica de interação e reprodução dos sons
+- **HTML5** — estrutura da página e elementos `<audio>`
+- **CSS3** — estilização do teclado (`css/reset.css`, `css/estilos.css`)
+- **JavaScript** — lógica para tocar os sons ao clicar/pressionar as teclas
 
 ## 📁 Estrutura do projeto
 
 ```
 midi/
-├── css/
-│   ├── reset.css
-│   └── estilos.css
-├── images/
-│   └── bateria.png
-├── sounds/
-│   ├── keyq.wav
-│   ├── keyw.wav
-│   ├── keye.wav
-│   ├── keya.wav
-│   ├── keys.wav
-│   ├── keyd.wav
-│   ├── keyz.wav
-│   ├── keyx.wav
-│   └── keyc.wav
-├── index.html
-└── index.js
+├── css/        # Arquivos de estilo
+├── images/     # Ícones e imagens (ex: favicon)
+├── sounds/     # Arquivos de áudio (.wav) de cada tecla
+└── index.html  # Página principal
 ```
 
-## ▶️ Como executar
+## 🚀 Como executar
 
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/Juniklx/midi.git
-   ```
+    ```bash
+    git clone https://github.com/Juniklx/midi.git
+    ```
 2. Entre na pasta do projeto:
-   ```bash
-   cd midi
-   ```
-3. Abra o arquivo `index.html` no navegador (ou utilize a extensão **Live Server** do VS Code para ter recarregamento automático).
+    ```bash
+    cd midi
+    ```
+3. Abra o arquivo `index.html` no navegador de sua preferência.
 
-## 🔊 Como funciona
+## 📌 Status
 
-Cada tecla possui duas classes CSS: uma genérica (`tecla`) e outra específica do instrumento (ex: `tecla_pom`). O script percorre todas as teclas usando um laço `while`, monta dinamicamente o id do elemento de áudio correspondente e associa um evento de clique que dispara a reprodução do som:
+Projeto simples de estudo, com foco em manipulação de elementos `<audio>` e eventos de clique/teclado em JavaScript.
 
-```javascript
-function tocaSom(idElementoAudio) {
-    document.querySelector(idElementoAudio).play();
-}
+## 📄 Licença
 
-const listaDeTeclas = document.querySelectorAll('.tecla');
-let contador = 0;
-
-while (contador < listaDeTeclas.length) {
-    const tecla = listaDeTeclas[contador];
-    const instrumento = tecla.classList[1];
-    const idAudio = `#som_${instrumento}`;
-
-    tecla.onclick = function () {
-        tocaSom(idAudio);
-    };
-
-    contador++;
-}
-```
-
-## 📚 Aprendizados
-
-Este projeto foi construído com fins didáticos, para praticar:
-
-- Estruturas de repetição em JavaScript
-- Seleção e manipulação de elementos do DOM
-- Boas práticas ao evitar repetição de código (DRY)
-
-## 👤 Autor
-
-<div align="center">Desenvolvido por Marcelo Teixeira</div>
+Este projeto é livre para fins de estudo.
